@@ -1,0 +1,15 @@
+From: IT Support <it@company-support.co>
+To: employee@example.com
+Subject: Password Expiration Notice
+Date: Tue, 23 Jan 2026 11:15:00 +0530
+Message-ID: <gray001@company-support.co>
+Authentication-Results: spf=pass dkim=pass dmarc=pass
+
+Hello,
+
+Your corporate password will expire today.
+To avoid disruption, please reset it using the link below:
+
+https://bit.ly/reset-company-password
+
+IT Support Team

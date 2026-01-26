@@ -1,0 +1,19 @@
+From: "Google Security" <alert@goog1e-security.com>
+Reply-To: support@goog1e-security.com
+To: victim@example.com
+Subject: Action Required: Unusual Sign-in Detected
+Date: Tue, 23 Jan 2026 09:30:00 +0530
+Message-ID: <phish001@goog1e-security.com>
+Received-SPF: fail
+Authentication-Results: spf=fail dkim=none dmarc=fail
+
+Dear User,
+
+We detected an unusual sign-in attempt on your Google account.
+
+To secure your account, please verify your identity immediately:
+https://accounts-google.verify-login[.]xyz/auth
+
+If not verified within 12 hours, your account will be locked.
+
+Google Security Team

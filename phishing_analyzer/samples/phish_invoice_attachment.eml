@@ -1,0 +1,22 @@
+From: Accounts <billing@vendor-payments.net>
+To: victim@example.com
+Subject: Invoice #88421 – Immediate Payment Required
+Date: Tue, 23 Jan 2026 11:00:00 +0530
+Message-ID: <inv88421@vendor-payments.net>
+Received-SPF: neutral
+Authentication-Results: spf=neutral dkim=none dmarc=none
+
+Hello,
+
+Please find the attached invoice for your recent transaction.
+Payment must be processed today to avoid penalties.
+
+Regards,
+Finance Team
+
+--boundary
+Content-Type: application/octet-stream
+Content-Disposition: attachment; filename="Invoice_88421.pdf.exe"
+Content-Transfer-Encoding: base64
+
+TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
