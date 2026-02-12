@@ -2,7 +2,7 @@
 
 ![Phishing Analyzer Cover](images/title.png)
 
-A phishing email analysis system that combines deterministic security checks with optional LLM-based explainability.
+This is a hybrid multi-agent phishing email analysis system, where deterministic security agents perform detection and scoring, and LLM agents are used strictly for explanation. Orchestration is handled via Prefect.
 
 ---
 

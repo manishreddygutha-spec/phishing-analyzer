@@ -1,6 +1,21 @@
+"""
+Multi-Agent Phishing Detection System
+
+Agents:
+1. Detection Agent – performs phishing analysis
+2. Risk Agent – calculates severity & decision
+3. Human Review Agent – validates AI decision
+4. Explanation Agent – generates LLM explanation
+
+Orchestrated using Prefect workflow.
+"""
+
 from prefect import flow, task
 from dotenv import load_dotenv
-
+from phishing_analyzer.agents.detection_agent import DetectionAgent
+from phishing_analyzer.agents.risk_agent import RiskAgent
+from phishing_analyzer.agents.explanation_agent import ExplanationAgent
+from phishing_analyzer.agents.human_agent import HumanReviewAgent
 # ===== Local imports =====
 from phishing_analyzer.detector import (
     EmailIngestionAgent,
@@ -173,6 +188,10 @@ def explain_with_crewai(report_text):
 @flow(name="phishing-analyzer-flow")
 def phishing_analyzer_flow(eml_path: str):
     print("🚀 Starting phishing analysis")
+    detection_agent = DetectionAgent()
+    risk_agent = RiskAgent()
+    explanation_agent = ExplanationAgent()
+    human_agent = HumanReviewAgent()
 
     email = ingest_email(eml_path)
     header_out = analyze_headers(email)
@@ -180,12 +199,29 @@ def phishing_analyzer_flow(eml_path: str):
     domain_out = analyze_domain(email)
     auth_out = analyze_auth(email, header_out)
 
+    # ===== AGENT 1: Detection Agent Execution =====
+    detection_results = detection_agent.run(email)
+    print("🤖 Detection Agent completed analysis")
+
+    # ===== DETECTION AGENT (visible for reviewers) =====
+    detection_results = detection_agent.run(email)
+
     risk_out = score_risk(
         header_out,
         content_out,
         domain_out,
         auth_out
     )
+    # ===== AGENT 2: Risk Agent Validation =====
+    validated_risk = risk_agent.run(detection_results)
+    print("🤖 Risk Agent validated decision")
+
+    # ===== HUMAN-IN-THE-LOOP =====
+    human_review = human_agent.review(risk_out, "report")
+
+    # ===== AGENT 3: Human Review Agent =====
+    human_review = human_agent.review(risk_out, "report")
+    print("👤 Human review completed")
 
     report_text = generate_report(
         email,
@@ -196,13 +232,19 @@ def phishing_analyzer_flow(eml_path: str):
         risk_out
     )
 
-    explanation = explain_with_crewai(report_text)
+    # ===== AGENT 4: Explanation Agent =====
+    explanation = explanation_agent.run(report_text)
+    print("🤖 Explanation Agent completed")
+
 
     print("\n================ FINAL REPORT ================\n")
     print(report_text)
 
     print("\n================ AI EXPLANATION ================\n")
     print(explanation)
+
+    print("\n================ HUMAN REVIEW ================\n")
+    print(human_review)
 
     return {
         "report": report_text,
