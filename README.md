@@ -5,7 +5,7 @@
 This is a hybrid multi-agent phishing email analysis system, where deterministic security agents perform detection and scoring, and LLM agents are used strictly for explanation. Orchestration is handled via Prefect.
 
 ---
-Real-World Cybersecurity Impact
+## 🌍 Real-World Cybersecurity Impact
 
 - This system demonstrates how multi-agent AI can improve phishing detection in real-world security environments.
 - Helps security teams automatically analyze suspicious emails
@@ -280,3 +280,4 @@ Do NOT interact with this email. Block sender and report to security.
 MIT License
 
 ---
+This project demonstrates how multi-agent AI systems can be safely applied in cybersecurity environments where reliability, explainability, and human oversight are critical.
