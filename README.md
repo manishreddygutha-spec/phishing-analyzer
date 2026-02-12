@@ -169,6 +169,30 @@ All agents are orchestrated using a Prefect workflow that coordinates execution,
 
 ❌ Never affects detection or scoring
 ---
+## 🔄 Agent Workflow
+
+The system follows a structured multi-agent workflow:
+
+1. Email ingestion collects raw email data from .eml files  
+2. Detection Agent analyzes headers, content, domains, and authentication  
+3. Risk Scoring Agent calculates phishing severity and recommended action  
+4. Human Review Agent validates the AI decision before final output  
+5. Explanation Agent generates an analyst-friendly explanation of the results  
+
+This workflow ensures reliable phishing detection while maintaining transparency and human oversight.
+---
+## 🧠 Why a Multi-Agent Approach?
+
+Instead of relying on a single AI model, this system separates responsibilities across specialized agents:
+
+- Detection Agent focuses on technical phishing indicators  
+- Risk Agent ensures consistent scoring and decisions  
+- Explanation Agent improves transparency  
+- Human Review Agent adds safety and oversight  
+
+This separation improves reliability, explainability, and real-world deployability of AI-driven phishing detection systems.
+
+---
 ## ⚙️ Installation
 ### Requirements
 
