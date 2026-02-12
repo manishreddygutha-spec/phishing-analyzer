@@ -1,4 +1,4 @@
-🛡️ Phishing Analyzer
+# 🛡️ Phishing Analyzer
 
 ![Phishing Analyzer Cover](images/title.png)
 
@@ -133,53 +133,35 @@ All agents are orchestrated using a Prefect workflow that coordinates execution,
 
 ---
 
-## 🚀 How It Works
+## ⚙️ How It Works
 
-### 1️⃣ Email Ingestion
+This system analyzes suspicious emails using a coordinated multi-agent pipeline that combines deterministic phishing detection, risk scoring, AI explanation, and human validation.
 
-- Parses .eml files
-- Extracts headers, body text, URLs, attachments
-- Sanitizes content to prevent unsafe processing
+Each agent performs a specialized role to ensure reliable and explainable phishing detection.
 
-### 2️⃣ Deterministic Analysis
-
-- Headers: SPF / DKIM / DMARC validation & anomalies
-- Content: Urgent language & link presence
-- Domain: WHOIS age detection
-- DNS Auth: SPF / DMARC / DKIM record presence
-
-### 3️⃣ Risk Scoring
-
-- Weighted policy-based scoring
-- Produces:
- - Risk score
- - Severity
--Recommended action
-
-###  4️⃣ Reporting
-
-- Generates a structured, human-readable report
-- PII-safe with automatic redaction
-
-### 5️⃣ Optional AI Explanation (CrewAI)
-
-- Reads the final report
-- Produces analyst-style explanation
-- Gracefully skips if CrewAI is not installed
-
-❌ Never affects detection or scoring
 ---
+
 ## 🔄 Agent Workflow
 
 The system follows a structured multi-agent workflow:
 
-1. Email ingestion collects raw email data from .eml files  
-2. Detection Agent analyzes headers, content, domains, and authentication  
-3. Risk Scoring Agent calculates phishing severity and recommended action  
-4. Human Review Agent validates the AI decision before final output  
-5. Explanation Agent generates an analyst-friendly explanation of the results  
+1. **Email Ingestion**  
+   Loads and parses email data from `.eml` files.
 
-This workflow ensures reliable phishing detection while maintaining transparency and human oversight.
+2. **Detection Agent**  
+   Analyzes headers, content, domains, and authentication signals to identify phishing indicators.
+
+3. **Risk Scoring Agent**  
+   Calculates overall phishing risk score and determines severity and recommended action.
+
+4. **Human Review Agent (Human-in-the-Loop)**  
+   Allows a security analyst to approve, block, or escalate the decision before final output.
+
+5. **Explanation Agent (CrewAI)**  
+   Generates a human-readable explanation of the analysis for analysts and stakeholders.
+
+This structured workflow ensures reliable phishing detection while maintaining transparency and human oversight.
+
 ---
 ## 🧠 Why a Multi-Agent Approach?
 
