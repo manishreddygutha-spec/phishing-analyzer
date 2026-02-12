@@ -28,7 +28,6 @@ from phishing_analyzer.detector import (
     WhoisTool,
 )
 
-from phishing_analyzer.crewai_explainer import run_crewai_explainer
 from phishing_analyzer.guardrails import POLICY, SimpleCache
 
 
@@ -173,14 +172,6 @@ def generate_report(email, header_out, content_out, domain_out, auth_out, risk_o
         risk_out
     )
 
-
-@task
-def explain_with_crewai(report_text):
-    """
-    AI explanation is mandatory.
-    If CrewAI is unavailable, the explainer already returns a skip message.
-    """
-    return run_crewai_explainer(report_text)
 
 
 # ================= FLOW =================
