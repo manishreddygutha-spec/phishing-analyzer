@@ -1,4 +1,4 @@
-# 🛡️ Phishing Analyzer
+# 🛡️ Multi-Agent AI Phishing Detection System with CrewAI and Human-in-the-Loop
 
 ![Phishing Analyzer Cover](images/title.png)
 
