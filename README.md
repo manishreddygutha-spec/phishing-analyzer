@@ -17,8 +17,6 @@ This system demonstrates how multi-agent AI can improve phishing detection in re
 
 The architecture reflects how modern Security Operations Centers combine deterministic detection, AI reasoning, and human oversight to prevent phishing attacks safely while maintaining operational efficiency.
 
-The system is designed with reliability, transparency, and modularity in mind. Key capabilities include:
-
 ---
 
 ## ✨ Key Features
