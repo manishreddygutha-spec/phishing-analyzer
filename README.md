@@ -2,17 +2,22 @@
 
 ![Phishing Analyzer Cover](images/title.png)
 
-This is a hybrid multi-agent phishing email analysis system, where deterministic security agents perform detection and scoring, and LLM agents are used strictly for explanation. Orchestration is handled via Prefect.
+Phishing attacks remain one of the most persistent and damaging cybersecurity threats faced by organizations today. Security teams must quickly analyze suspicious emails while ensuring legitimate communication is not mistakenly blocked. This requires systems that are not only accurate but also transparent and explainable.
+
+This project presents a multi-agent AI phishing detection system that combines deterministic security analysis with explainable AI. The architecture is designed to simulate how real-world Security Operations Centers (SOC) investigate suspicious emails using layered detection, structured risk scoring, and human validation.
+
+Instead of relying solely on large language models, the system prioritizes deterministic detection for reliability and uses AI only for explanation. A human-in-the-loop stage ensures that final decisions remain interpretable and safe, making the system suitable for real-world cybersecurity workflows.
+
 
 ---
+
 ## 🌍 Real-World Cybersecurity Impact
 
-- This system demonstrates how multi-agent AI can improve phishing detection in real-world security environments.
-- Helps security teams automatically analyze suspicious emails
-- Reduces manual phishing investigation time
-- Provides explainable phishing risk scoring
-- Allows human analysts to validate decisions before blocking emails
-- The architecture reflects how modern Security Operations Centers (SOC) combine automated detection, AI reasoning, and human oversight to prevent phishing attacks safely.
+This system demonstrates how multi-agent AI can improve phishing detection in real-world security environments. It enables security teams to automatically analyze suspicious emails, reduce manual investigation time, and generate explainable phishing risk scores that can be reviewed before taking action.
+
+The architecture reflects how modern Security Operations Centers combine deterministic detection, AI reasoning, and human oversight to prevent phishing attacks safely while maintaining operational efficiency.
+
+The system is designed with reliability, transparency, and modularity in mind. Key capabilities include:
 
 ---
 
@@ -39,6 +44,8 @@ This is a hybrid multi-agent phishing email analysis system, where deterministic
 ---
 
 ## 🧠 Architecture Overview
+
+The following diagram illustrates how multiple specialized agents collaborate within a structured orchestration pipeline.
 
 ![Architecture Diagram](images/architecture.png)
 
@@ -163,16 +170,31 @@ The system follows a structured multi-agent workflow:
 This structured workflow ensures reliable phishing detection while maintaining transparency and human oversight.
 
 ---
+
 ## 🧠 Why a Multi-Agent Approach?
 
-Instead of relying on a single AI model, this system separates responsibilities across specialized agents:
+Traditional phishing detection systems often rely on a single model or rule-based engine, which can limit transparency and reliability. This system adopts a multi-agent architecture where each agent performs a specialized task such as header inspection, content analysis, domain intelligence, and risk scoring.
 
-- Detection Agent focuses on technical phishing indicators  
-- Risk Agent ensures consistent scoring and decisions  
-- Explanation Agent improves transparency  
-- Human Review Agent adds safety and oversight  
+By separating responsibilities across agents, the system becomes easier to maintain, test, and extend. Each agent contributes structured findings that are combined into a final risk assessment, making the decision process transparent and explainable.
 
-This separation improves reliability, explainability, and real-world deployability of AI-driven phishing detection systems.
+This modular approach mirrors how real-world security teams analyze suspicious emails using layered validation rather than relying on a single automated decision.
+
+---
+
+## ⚙️ Deterministic Detection with AI Explanation
+
+The system prioritizes deterministic phishing detection techniques such as header validation, domain intelligence, authentication checks, and structured risk scoring. These methods provide reliable and reproducible results.
+
+AI is used selectively for generating human-readable explanations of the findings rather than making final decisions. This hybrid approach ensures both accuracy and transparency, allowing analysts to understand why an email is flagged without relying entirely on probabilistic model outputs.
+
+
+---
+
+## 🏢 Practical Use in Security Operations
+
+This architecture can support enterprise email security teams by automating the initial analysis of suspicious emails while maintaining human oversight. Security analysts can use the structured output to make faster and more consistent decisions.
+
+The system can also serve as a foundation for building SOC automation tools, training datasets, or advanced threat analysis pipelines where explainability and reliability are critical.
 
 ---
 ## ⚙️ Installation
@@ -265,13 +287,11 @@ Do NOT interact with this email. Block sender and report to security.
 
 ---
 
-## 📌 Future Enhancements
+## ⚠️ Limitations and Future Improvements
 
-- Batch email analysis
-- JSON / PDF report export
-- GitHub Actions CI
-- Docker support
-- Threat intelligence feeds (VirusTotal, Talos)
+While the system demonstrates a robust multi-agent architecture, it currently focuses on deterministic phishing detection using structured signals. Future improvements could include integration with threat intelligence feeds, advanced URL sandboxing, and continuous learning from analyst feedback.
+
+The modular design allows these enhancements to be incorporated without major architectural changes.
 
 ---
 
